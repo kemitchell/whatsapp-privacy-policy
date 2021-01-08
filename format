@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+for html in *.html; do
+  echo "$html"
+  tidy -config tidy.config "$html" | sponge "$html"
+  git add "$html"
+done
